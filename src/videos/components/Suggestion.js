@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {View, Image, Text, StyleSheet} from 'react-native';
+import {View, Image, Text, StyleSheet, TouchableOpacity} from 'react-native';
 
 const Suggestion = ({
   medium_cover_image: image,
@@ -8,21 +8,24 @@ const Suggestion = ({
   title,
   year,
   rating,
+  onPress,
 }) => {
   return (
-    <View style={styles.container}>
-      <View style={styles.left}>
-        <Image style={styles.cover} source={{uri: image}} />
-        <View style={styles.genre}>
-          <Text style={styles.genreText}>{genres[1]}</Text>
+    <TouchableOpacity onPress={onPress}>
+      <View style={styles.container}>
+        <View style={styles.left}>
+          <Image style={styles.cover} source={{uri: image}} />
+          <View style={styles.genre}>
+            <Text style={styles.genreText}>{genres[1]}</Text>
+          </View>
+        </View>
+        <View style={styles.right}>
+          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.year}>{year}</Text>
+          <Text style={styles.rating}>{rating} Stars</Text>
         </View>
       </View>
-      <View style={styles.right}>
-        <Text style={styles.title}>{title}</Text>
-        <Text style={styles.year}>{year}</Text>
-        <Text style={styles.rating}>{rating} Stars</Text>
-      </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

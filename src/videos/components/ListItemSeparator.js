@@ -1,12 +1,17 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 
-const ListItemSeparator = ({color}) => {
+const ListItemSeparator = ({color, horizontal = false}) => {
   const styles = StyleSheet.create({
-    separator: {
-      borderTopWidth: 1,
-      borderColor: color || '#eaeaea',
-    },
+    separator: horizontal
+      ? {
+          marginHorizontal: 5,
+        }
+      : {
+          marginVertical: 5,
+          borderTopWidth: 1,
+          borderColor: color || '#AAA',
+        },
   });
 
   return <View style={styles.separator} />;
